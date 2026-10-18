@@ -1,53 +1,22 @@
-# asm_elaborato
+# C to Assembly
 
-Questo progetto riguarda l'elaborato di Assembly per il corso di Architettura degli Elaboratori, Università di Verona (aa. 2022-2023).
+Assignment for the Computer Architecture course at the University of Verona (2022–23). The program was first written in C and then reimplemented in 32-bit x86 Assembly (AT&T syntax, GNU `as`). Both versions behave the same way: the program is an interactive menu that runs in the terminal.
 
-## Struttura del Progetto
+## Structure
 
-- `src/`: Contiene il file sorgente in Assembly `elaborato.s` e il file `elaborato.c`.
-- `bin/`: Cartella contenente l'output compilato del programma.
-- `obj/`: Cartella contenente i file oggetto generati durante la compilazione.
-- `Makefile`: Il Makefile per compilare il progetto.
-- `relazione.pdf`: La relazione del progetto, che include le specifiche, il funzionamento della FSM, del database e l'ottimizzazione.
+- `src/` – `elaborato.s` (Assembly version) and `elaborato.c` (reference C version)
+- `obj/` – object files created by the build
+- `bin/` – the compiled executable
+- `Makefile`
+- `Relazione.pdf` – project report (in Italian)
 
-## Come Eseguire il Programma
+## Build and run
 
-1. **Ambiente di Sviluppo**:  
-   Per eseguire questo progetto, è consigliato utilizzare un sistema operativo Linux o una macchina virtuale Linux. Se non hai accesso a una macchina virtuale o a Linux, puoi comunque provare a far funzionare il progetto su un sistema diverso, ma la compilazione e l'esecuzione potrebbero non funzionare come previsto.
-
-2. **Compilazione su Linux o Mac (con strumenti di sviluppo installati)**:  
-   Se stai usando Linux o hai un ambiente virtuale con Linux, esegui i seguenti comandi:
-
-   1. Apri il terminale.
-   2. Naviga fino alla cartella del progetto:
-   
-      ```bash
-      cd /percorso/della/cartella/asm_elaborato
-      ```
-
-   3. Esegui il comando `make` per compilare il programma:
-   
-      ```bash
-      make
-      ```
-
-   4. Una volta compilato, esegui il programma con il comando:
-   
-      ```bash
-      ./bin/elaborato
-      ```
-
-3. **Funzionalità**:  
-   La funzionalità di questo progetto è equivalente a quella in C. Se preferisci, puoi utilizzare il programma in C invece di quello in Assembly, ma la logica e i risultati finali saranno gli stessi.
-
-## Dettagli di Compilazione
-
-- Il Makefile compila il file sorgente `elaborato.s` in un file oggetto, quindi collega il file oggetto per creare l'eseguibile `elaborato`.
-- Il comando `make` esegue tutte le operazioni di compilazione automaticamente.
-
-## Pulizia
-
-Per rimuovere i file generati (file oggetto e binari), esegui:
+The Makefile assembles and links a 32-bit ELF binary with `as` and `ld`, so you need Linux (a VM works fine).
 
 ```bash
-make clean
+make
+./bin/elaborato
+```
+
+`make clean` removes the object files and the executable.
